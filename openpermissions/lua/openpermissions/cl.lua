@@ -584,13 +584,13 @@ function OpenPermissions:OpenMenu(specific_addon)
 						end
 					else
 						local teams = {}
-						for i,t in ipairs(team.GetAllTeams()) do
+						for i,t in pairs(team.GetAllTeams()) do
 							table.insert(teams, {Name = t.Name, Index = i, Color = t.Color})
 						end
 						table.SortByMember(teams, "Name", true)
 						for i,item in ipairs(teams) do
 							DMenuOption_ColorIcon(ACCESS_GROUP_TEAM:AddOption(item.Name, function()
-								AddAccessGroup:Add(OpenPermissions.ACCESS_GROUP.TEAM, item.Name, OpenPermissions:GetTeamIdentifier(i))
+								AddAccessGroup:Add(OpenPermissions.ACCESS_GROUP.TEAM, item.Name, OpenPermissions:GetTeamIdentifier(item.Index))
 							end), item.Color)
 						end
 					end
