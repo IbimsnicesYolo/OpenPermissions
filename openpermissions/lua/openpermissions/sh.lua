@@ -517,7 +517,7 @@ function OpenPermissions:GetTeamFromIdentifier(team_identifier)
 			end
 		end
 	else
-		for i,t in ipairs(team.GetAllTeams()) do
+		for i,t in pairs(team.GetAllTeams()) do
 			if (t.Name == team_identifier) then
 				team_identifier_index[team_identifier] = i
 				return i
